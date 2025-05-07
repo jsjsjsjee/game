@@ -1,0 +1,62 @@
+h2 {
+    font-size: 2.5em;
+    color: #00bcd4;
+    margin-top: 20px;
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
+}
+
+p {
+    font-size: 1.3em;
+    color: #4a148c;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 3px dashed #ff9800;
+    border-radius: 10px;
+    text-align: center;
+    width: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #ffeb3b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #fbc02d;
+    transform: scale(1.1);
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #e91e63;
+    background-color: #fff59d;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    transform: rotate(-5deg) scale(1.05);
+    background-color: #fdd835;
+}

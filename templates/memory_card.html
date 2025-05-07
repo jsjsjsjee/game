@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Memory Card Game</h2>
+<p>Click cards to find matching pairs!</p>
+<div id="game" class="grid">
+    {% for emoji in cards %}
+        <div class="card" onclick="flipCard(this)" data-emoji="{{ emoji }}">?</div>
+    {% endfor %}
+</div>
+<p id="matches"></p>
+
+<script>
+let flipped = [];
+let lockBoard = false;
+
+function flipCard(card) {
+    if (lockBoard || card.innerText !== "?") return;
+
+    card.innerText = card.dataset.emoji;
+    flipped.push(card);
+
+    if (flipped.length === 2) {
+        lockBoard = true;
+        setTimeout(() => {
+            if (flipped[0].dataset.emoji === flipped[1].dataset.emoji) {
+                flipped.forEach(c => c.style.backgroundColor = "#9f9");
+            } else {
+                flipped.forEach(c => c.innerText = "?");
+            }
+            flipped = [];
+            lockBoard = false;
+        }, 1000);
+    }
+}
+</script>
+
+<style>
+.grid {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    gap: 10px;
+}
+.card {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #eee;
+}
+</style>
+{% endblock %}

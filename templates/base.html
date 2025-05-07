@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rushik's GameZone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>/* style.css */
+
+        body {
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            font-size: 3em;
+            color: #ff4081;
+            animation: wiggle 2s infinite;
+            text-shadow: 2px 2px #ffe600;
+            margin-top: 30px;
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        nav {
+            margin: 20px 0;
+            font-size: 1.2em;
+            background-color: #ffcccb;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        
+        nav a {
+            color: #2d2d2d;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            margin: 0 5px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        nav a:hover {
+            background-color: #ffff66;
+            color: #d100d1;
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 0 10px #ff00ff;
+        }
+        
+        hr {
+            border: 2px dashed #f06292;
+            width: 80%;
+            margin: 20px auto;
+        }</style>
+</head>
+<body>
+    <h1>Rushik's GameZone</h1>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a> |
+        <a href="{{ url_for('tic_tac_toe') }}">Tic-Tac-Toe</a> |
+        <a href="{{ url_for('hangman') }}">Hangman</a> |
+        <a href="{{ url_for('rps') }}">RPS</a> |
+        <a href="{{ url_for('memory_card') }}">Memory</a> |
+        <a href="{{ url_for('word_scramble') }}">Scramble</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

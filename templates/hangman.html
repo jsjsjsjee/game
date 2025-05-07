@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Hangman</h2>
+<p><strong>Word:</strong> {{ word }}</p>
+<p><strong>Guessed letters:</strong> {{ guessed }}</p>
+<p><strong>Remaining guesses:</strong> {{ remaining }}</p>
+
+{% if result %}
+<p><strong>{{ result }}</strong></p>
+{% endif %}
+
+{% if not game_over %}
+<form method="post">
+    <input type="text" name="letter" maxlength="1" required>
+    <button type="submit">Guess</button>
+</form>
+{% endif %}
+
+
+<a href="{{ url_for('reset_hangman') }}">Reset Game</a>
+{% endblock %}

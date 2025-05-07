@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Word Scramble</h2>
+<p>Scrambled word: {{ scrambled }}</p>
+<form method="post">
+    <input type="text" name="guess" required>
+    <button type="submit">Submit</button>
+</form>
+{% if result %}
+<p>{{ result }}</p>
+{% endif %}
+{% endblock %}
